@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from './supabaseClient';
 import { Link } from 'react-router-dom';
-import SignUpForm from './SignUpForm';
 import "./LoginForm.css";
 
 
@@ -48,34 +47,50 @@ function LoginForm() {
   }
 
   return (
-    <div className="container mt-5">
-        <h1 className="h3 mb-3 font-weight-normal">Please Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label className="sr-only">
-        Username:
-          <input className="form-control mb-3"
-            type="text"
-            value={userName}
-            onChange={handleUsernameChange}
-            required
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </label>
-        <button className="form-submit" type="submit">Log in</button>
-
-        <p>
-          Don't have an account? <Link to="/signupform">Sign up</Link>
-        </p>
-      </form>
-    </div>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+      <div className="card">
+        <div className="card-body">
+          <h1 className="h3 mb-3 font-weight-normal text-center">Please Login</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="sr-only">
+                Username:
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Username"
+                  value={userName}
+                  onChange={handleUsernameChange}
+                  required
+                />
+              </label>
+            </div>
+            <div className="mb-3">
+              <label>
+                Password:
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  required
+                />
+              </label>
+            </div>
+    
+            <button className="btn btn-primary" type="submit">
+              Log in
+            </button>
+    
+            <p className="mt-3">
+              Don't have an account? <Link to="/signupform">Sign up</Link>
+            </p>
+          </form>
+        </div>
+      </div>
+  </div>
+  
   );
 }
 

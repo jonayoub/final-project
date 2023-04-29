@@ -44,24 +44,55 @@ function SignUpForm() {
   }
 
   return (
-    <div className="form-container">
-      <h1>Sign Up</h1>
-    <form onSubmit={handleSignup}>
-      <label>
-        Username:
-        <input type="text" value={userName} onChange={handleUsernameChange} required />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={handlePasswordChange} required />
-      </label>
-      <button className="form-submit"  type="submit">Sign up</button>
-
-      <p>
+<div class="d-flex align-items-center justify-content-center vh-100">
+      <div className="card">
+        <div className="card-body">
+          <h1 className="h3 mb-3 font-weight-normal text-center">Sign Up</h1>
+          <form onSubmit={handleSignup}>
+            <div className="mb-3">
+              <label className="sr-only">
+                Username:
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Username"
+                  value={userName}
+                  onChange={handleUsernameChange}
+                  required
+                />
+              </label>
+            </div>
+            <div className="mb-3">
+              <label>
+                Password:
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  required
+                />
+              </label>
+            </div>
+    
+            <button className="btn btn-primary" type="submit">
+              Sign up
+            </button>
+    
+      
+            <p className="mt-3">
          <Link to="/">Back to login</Link>
         </p>
-    </form>
+          </form>
+        </div>
       </div>
+  </div>
+
+
+
+
+  
   )
 }
 
