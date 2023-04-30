@@ -19,10 +19,6 @@ function Dashboard() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=318a474343ba36dee83bd4f5c9fe6ee3&units=imperial`
     axios.get(url).then(showWeather);
   }
-  // function getImageIcon(weather) {
-  //   const value = weather && Array.isArray(weather) && weather.weather[0].description;
-  //   return value;
-  // }
   let form = (
     <div>
       <form onSubmit={displayTemperature}>
@@ -60,14 +56,6 @@ function Dashboard() {
   </section>
   
   );
-  // return (
-  //   <div>
-  //     <h1>Welcome to the Dashboard</h1>
-  //     <p>Welcome to the _ dashboard. Here you will find __
-  //       This uses the __ API. 
-  //     </p>
-  //   </div>
-  // );
 }
 
 export default Dashboard;
