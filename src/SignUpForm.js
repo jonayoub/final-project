@@ -3,8 +3,6 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from './supabaseClient';
 import { Link } from 'react-router-dom';
-import LoginForm from './LoginForm';
-
 
 function SignUpForm() {
   const [userName, setUsername] = useState('')
