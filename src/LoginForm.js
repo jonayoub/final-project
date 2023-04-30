@@ -30,9 +30,6 @@ function LoginForm() {
       .eq('userName', userName)
       .eq('password', password)
       .single()
-  
-      console.log('data:', data)
-      console.log('error:', error)
     
       if (error) {
         toast.error('An error occurred while logging in', { autoClose: 5000 })
@@ -42,7 +39,6 @@ function LoginForm() {
         toast.success('Logged in successfully!', { autoClose: 5000 })
         navigate('/dashboard');
 
-        // Redirect to dashboard or home page
       }
   }
 

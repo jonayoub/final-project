@@ -22,7 +22,7 @@ function Dashboard() {
   let form = (
     <div>
       <form onSubmit={displayTemperature}>
-        <input type="text" onChange={handleChange} />
+        <input type="text" placeholder='Enter a city' onChange={handleChange} />
         <input type="submit" class="btn btn-primary"value="Search" />
       </form>
     </div>
