@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./Dashboard.css";
 
@@ -7,6 +7,8 @@ function Dashboard() {
 
   let [city, setCity] = useState("");
   let [weather, setWeather] = useState("");
+  let [quotes, setQuote] = useState("");
+
   function showWeather(response) {
     setWeather(response.data);
     console.log(weather);
@@ -19,7 +21,23 @@ function Dashboard() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=318a474343ba36dee83bd4f5c9fe6ee3&units=imperial`
     axios.get(url).then(showWeather);
   }
-  let form = (
+  
+  const displayQuote = async () => {
+    try {
+      const response = await fetch('https://api.breakingbadquotes.xyz/v1/quotes');
+      const data = await response.json();
+      // console.log(data[0].quote)
+      setQuote(data[0])
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    displayQuote();
+  }, []);
+
+    let form = (
     <div>
       <form onSubmit={displayTemperature}>
         <input type="text" placeholder='Enter a city' onChange={handleChange} />
@@ -32,6 +50,11 @@ function Dashboard() {
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-8 col-lg-6 col-xl-4">
+          <h3 class="mb-4 pb-2 fw-normal">Grab a random Breaking Bad Quote!</h3>
+            <p className='mx-auto font-italic quote-text'>{quotes.quote} - {quotes.author} </p>
+            <button onClick={displayQuote} className="btn btn-primary">New Quote</button>
+          <div class="mb-4 pb-2">
+          </div>
           <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
           {form}
           <div class="mb-4 pb-2">

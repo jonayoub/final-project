@@ -11,3 +11,8 @@ section {
 h3{
     color: white;
 }
+
+.quote-text{
+    color: white;
+    text-decoration: wavy;
+}
